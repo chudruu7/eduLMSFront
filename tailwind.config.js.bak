@@ -1,0 +1,32 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      colors: {
+        role: {
+          student: { DEFAULT: '#10B981', fg: '#064E3B' },
+          teacher: { DEFAULT: '#F59E0B', fg: '#78350F' },
+          admin:   { DEFAULT: '#6366F1', fg: '#312E81' },
+        },
+        ui: { bg: '#0B1021', card: '#111833', soft: '#0E1530', border: '#1F2A4A' },
+      },
+      boxShadow: {
+        soft: '0 8px 30px rgba(17, 24, 51, 0.35)',
+        glow: '0 0 0 1px rgba(99,102,241,0.35), 0 8px 20px rgba(99,102,241,0.25)',
+      },
+     // tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      backgroundImage: {
+        'white-gradient': "url('/white_gradient_background.jpg')",
+      },
+    },
+  },
+};
+      },
+    },
+  },
+  plugins: [],
+;

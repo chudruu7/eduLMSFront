@@ -1,6 +1,10 @@
 import toast from 'react-hot-toast';
 
-export const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const rawApiBaseUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const normalizedApiBaseUrl = rawApiBaseUrl.replace(/\/$/, '');
+export const API_BASE_URL = normalizedApiBaseUrl.endsWith('/api')
+    ? normalizedApiBaseUrl
+    : `${normalizedApiBaseUrl}/api`;
 const LS_ME = 'lms_me';
 
 // ----------------------------------------------------------------------

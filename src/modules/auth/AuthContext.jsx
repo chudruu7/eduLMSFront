@@ -1,6 +1,6 @@
 import { useState, createContext, useContext, useEffect, useMemo, useCallback } from "react";
 import toast from "react-hot-toast";
-import { loginUser, registerUser } from "../../services/api.js";
+import { API_BASE_URL, loginUser, registerUser } from "../../services/api.js";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const LS_ME = "lms_me";
@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
         if (!local?.token) { setLoading(false); return; }
 
         try {
-            const res = await fetch('http://localhost:5000/api/users/profile', {
+            const res = await fetch(`${API_BASE_URL}/users/profile`, {
                 headers: { 'Authorization': `Bearer ${local.token}` }
             });
             if (res.ok) {
@@ -98,7 +98,7 @@ export function AuthProvider({ children }) {
                 toast('Зураг хэт том байна. Зураггүйгээр шинэчлэгдлээ.');
             }
 
-            const res = await fetch('http://localhost:5000/api/users/profile', {
+            const res = await fetch(`${API_BASE_URL}/users/profile`, {
                 method: 'PATCH',
                 headers: {
                     'Authorization': `Bearer ${local.token}`,

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaPhone, FaFacebook, FaInstagram, FaGithub } from "react-icons/fa";
+import { API_BASE_URL } from "../../services/api.js";
 
 export default function TeacherCard() {
   const [teachers, setTeachers] = useState([]);
@@ -15,7 +16,7 @@ useEffect(() => {
         localStorage.removeItem('lms_me');
     }
 
-    fetch("http://localhost:5000/api/teachers", {
+    fetch(`${API_BASE_URL}/teachers`, {
         headers: {
             'Authorization': `Bearer ${local?.token || ''}`,
             'Content-Type': 'application/json'
